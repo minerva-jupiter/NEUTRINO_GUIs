@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "NEUTRINO_GUIs": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false,
+      "nativeDebugging": true
+    }
+  }
+}
