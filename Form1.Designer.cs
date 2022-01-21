@@ -51,7 +51,7 @@
             // 
             this.musicFileSelect.BackColor = System.Drawing.SystemColors.Control;
             this.musicFileSelect.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.musicFileSelect.Location = new System.Drawing.Point(339, 145);
+            this.musicFileSelect.Location = new System.Drawing.Point(342, 276);
             this.musicFileSelect.Name = "musicFileSelect";
             this.musicFileSelect.Size = new System.Drawing.Size(130, 30);
             this.musicFileSelect.TabIndex = 1;
@@ -64,7 +64,7 @@
             this.scorefile.AutoSize = true;
             this.scorefile.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.scorefile.ForeColor = System.Drawing.SystemColors.Control;
-            this.scorefile.Location = new System.Drawing.Point(142, 128);
+            this.scorefile.Location = new System.Drawing.Point(145, 259);
             this.scorefile.Name = "scorefile";
             this.scorefile.Size = new System.Drawing.Size(532, 14);
             this.scorefile.TabIndex = 2;
@@ -74,7 +74,7 @@
             // 
             this.runFileSellect.BackColor = System.Drawing.SystemColors.Control;
             this.runFileSellect.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.runFileSellect.Location = new System.Drawing.Point(339, 293);
+            this.runFileSellect.Location = new System.Drawing.Point(341, 165);
             this.runFileSellect.Name = "runFileSellect";
             this.runFileSellect.Size = new System.Drawing.Size(130, 30);
             this.runFileSellect.TabIndex = 3;
@@ -86,7 +86,7 @@
             // 
             this.whereRunfile.AutoSize = true;
             this.whereRunfile.ForeColor = System.Drawing.SystemColors.Control;
-            this.whereRunfile.Location = new System.Drawing.Point(233, 275);
+            this.whereRunfile.Location = new System.Drawing.Point(235, 147);
             this.whereRunfile.Name = "whereRunfile";
             this.whereRunfile.Size = new System.Drawing.Size(359, 15);
             this.whereRunfile.TabIndex = 4;

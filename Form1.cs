@@ -4,6 +4,7 @@ namespace NEUTRINO_GUIs
 {
     public partial class Form1 : Form
     {
+        string whereRun;
         public void Command(string command)
         {
             //引数を代入
@@ -22,7 +23,7 @@ namespace NEUTRINO_GUIs
             process.WaitForExit();
             process.Close();
 
-            MessageBox.Show("Done");
+
         }
         public Form1()
         {
@@ -37,9 +38,10 @@ namespace NEUTRINO_GUIs
         private void RUN_Click(object sender, EventArgs e)
         {
             string fileNameR = whereRunfile.Text;
-            //親ファイルに移動
+            //選択されたRunファイルを実行
+            MessageBox.Show("実行が開始されました。");
             Command(fileNameR);
-
+            MessageBox.Show("Done");
 
         }
 
@@ -57,17 +59,18 @@ namespace NEUTRINO_GUIs
             }
 
             //配列に代入
-            string[] lines = File.ReadAllLines("../Run.bat");
+            string  fileNameR = Path.GetFileNameWithoutExtension(whereRun);
+            string[] lines = File.ReadAllLines(whereRun);
             //Runファイルを書き換える
             bool streamWriterOption = false;
-            string fileName = openFileDialog.FileName;
-            StreamWriter sw = new StreamWriter(fileName, streamWriterOption);
+            string scoreFileName = Path.GetFileNameWithoutExtension(openFileDialog.FileName);
+            StreamWriter sw = new StreamWriter(whereRun, streamWriterOption);
             for (int a = 0; a < 5; a++)
             {
                 sw.WriteLine(lines[a]);
             }
             //BASENAMEの行を書き換え
-            sw.WriteLine("set BASENAME = " + openFileDialog);
+            sw.WriteLine("set BASENAME = " + scoreFileName);
 
             //残りの行を書き換え
             for (int b = 6; b < lines.Length; b++)
@@ -76,7 +79,7 @@ namespace NEUTRINO_GUIs
             }
             sw.Close();
 
-            scorefile.Text = fileName;
+            scorefile.Text = scoreFileName;
             MessageBox.Show("ファイル選択が完了しました。");
         }
 
@@ -84,15 +87,16 @@ namespace NEUTRINO_GUIs
         {
             var openFileDialog1 = new OpenFileDialog();
             openFileDialog1.Filter = "バッチファイル(*.bat)|*.bat|All files (*.*)|*.*";
-            openFileDialog1.FilterIndex = 2;
+            openFileDialog1.FilterIndex = 1;
             openFileDialog1.Title = "Runファイル選択";
             openFileDialog1.RestoreDirectory = true;
-            openFileDialog1.FileName = "sample1.musicxml";
+            openFileDialog1.FileName = "Run.bat";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 Console.WriteLine(openFileDialog1.FileName);
             }
 
+            whereRun = openFileDialog1.FileName;
             whereRunfile.Text = openFileDialog1.FileName;
             MessageBox.Show("ファイル選択が完了しました。");
         }
