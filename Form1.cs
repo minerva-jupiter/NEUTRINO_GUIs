@@ -59,18 +59,20 @@ namespace NEUTRINO_GUIs
             }
 
             //配列に代入
-            string  fileNameR = Path.GetFileNameWithoutExtension(whereRun);
             string[] lines = File.ReadAllLines(whereRun);
             //Runファイルを書き換える
             bool streamWriterOption = false;
             string scoreFileName = Path.GetFileNameWithoutExtension(openFileDialog.FileName);
+            //StreamWriterを起動
             StreamWriter sw = new StreamWriter(whereRun, streamWriterOption);
+
+
             for (int a = 0; a < 5; a++)
             {
                 sw.WriteLine(lines[a]);
             }
             //BASENAMEの行を書き換え
-            sw.WriteLine("set BASENAME = " + scoreFileName);
+            sw.WriteLine("set BASENAME=" + scoreFileName);
 
             //残りの行を書き換え
             for (int b = 6; b < lines.Length; b++)
@@ -79,7 +81,7 @@ namespace NEUTRINO_GUIs
             }
             sw.Close();
 
-            scorefile.Text = scoreFileName;
+            scorefile.Text = openFileDialog.FileName;
             MessageBox.Show("ファイル選択が完了しました。");
         }
 
